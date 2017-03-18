@@ -10,7 +10,7 @@ import { DesktopComponent } from './desktop/desktop.component';
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
     DesktopComponent
   ],
   imports: [
