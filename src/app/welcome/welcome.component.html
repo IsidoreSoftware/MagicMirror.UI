@@ -1,6 +1,12 @@
-<div class="message">
-  hi, Kuba
+<div *ngIf="user" class="message">
+  hi, {{user}}
   <div class="submessage">
-    What is your plan for today?
+    {{welcomeMessage}}
+  </div>
+</div>
+<div *ngIf="!user" class="message">
+  Hallo!
+  <div class="submessage">
+    {{welcomeMessage}}
   </div>
 </div>

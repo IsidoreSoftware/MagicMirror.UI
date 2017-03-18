@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isLoggedIn:boolean = false;
+  a:string;
+  clicked(){
+    this.a = 'Kuba';
+  }
 }

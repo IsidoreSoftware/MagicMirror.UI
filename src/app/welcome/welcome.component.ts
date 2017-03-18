@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'welcome',
@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
-  title = 'app works!';
+
+  @Input('user')
+  public user:string;
+
+  @Output("login")
+  public loginPerformed: EventEmitter<any> = new EventEmitter()
+  
+  welcomeMessage:string = "The day is beatiful, isn't it?";
+
+  login(){
+    console.log(this.user);
+    this.loginPerformed.emit('val');
+  }
 }
