@@ -1,7 +1,7 @@
 {
   "name"    : "Magic Mirror",
   "version" : "1.0.0",
-  "main"    : "electron.js",
+  "main"    : "electron.bundle.js",
   "description": "Frontend app for Magic Mirror",
   "copyright": "Copyright © 2017 Isidore Software",
   "author": {
