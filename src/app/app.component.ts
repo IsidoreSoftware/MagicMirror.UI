@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { WelcomeComponent } from "app/welcome/welcome.component";
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isLoggedIn:boolean = false;
-  a:string;
+  a:string="";
+
+  @ViewChild('welcome')
+  public welcome : WelcomeComponent;
+
   clicked(){
+    console.log("Logged in");
+  }
+
+  c(){
     this.a = 'Kuba';
+    this.welcome.login();
   }
 }

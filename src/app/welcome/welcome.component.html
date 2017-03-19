@@ -1,11 +1,10 @@
-<div *ngIf="user" class="message">
-  hi, {{user}}
-  <div class="submessage">
-    {{welcomeMessage}}
+<div class="message">
+  <div [@lockState]="locked">
+    Hello!
   </div>
-</div>
-<div *ngIf="!user" class="message">
-  Hallo!
+  <div [@lockState]="!locked">
+    hi, {{user}}
+  </div>
   <div class="submessage">
     {{welcomeMessage}}
   </div>
