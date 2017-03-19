@@ -1,9 +1,7 @@
 <div class="message">
-  <div [@lockState]="locked">
-    Hello!
-  </div>
-  <div [@lockState]="!locked">
-    hi, {{user}}
+  <div class="user-container">
+    <span [@isVisibleChanged]="!locked">Hello!</span>
+    <span [@isVisibleChanged]="locked">hi, {{user}}</span>
   </div>
   <div class="submessage">
     {{welcomeMessage}}

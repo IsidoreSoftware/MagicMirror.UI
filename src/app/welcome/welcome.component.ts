@@ -6,21 +6,13 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'],
   animations: [
-    trigger('lockState', [
-      state('true', style({
-        visibility: 'hidden',
-        opacity: '0',
-        display: 'none'
-      })),
-      state('false', style({
-        visibility: 'visible',
-        opacity: '1',
-        display: 'block'
-      })),
-      transition('1 => 0', animate('5s')),
-      transition('0 => *', animate('26s'))
+    trigger('isVisibleChanged', [
+      state('true', style({ opacity: 1, display: 'block' })),
+      state('false', style({ opacity: 0 })),
+      transition('* => 1', animate('2s')),
+      transition('1 => 0', animate('1s'))
     ])
-  ]
+  ],
 })
 export class WelcomeComponent {
 
