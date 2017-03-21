@@ -28,7 +28,7 @@ export class ElectronMainProcess {
 
     public OpenMainWindow() {
         // Create the browser window.
-        let win = new BrowserWindow({ width: 300, height: 300 })
+        let win = new BrowserWindow({ width: 900, height: 900, frame: false, titleBarStyle: 'hidden' })
 
         // and load the index.html of the app.
         win.loadURL(url.format({
