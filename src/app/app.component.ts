@@ -12,7 +12,7 @@ export class AppComponent {
   @ViewChild('welcome')
   public welcome : WelcomeComponent;
 
-  clicked(){
+  userLoggedIn(){
     console.log("Logged in");
   }
 

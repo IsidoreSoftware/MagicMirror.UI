@@ -9,8 +9,7 @@ import { animations } from "./welcome.animations";
 })
 export class WelcomeComponent {
 
-  @Input('user')
-  public user: string;
+  private user: string;
 
   @Output("login")
   public loginPerformed: EventEmitter<any> = new EventEmitter()
@@ -19,8 +18,15 @@ export class WelcomeComponent {
 
   welcomeMessage: string = "The day is beatiful, isn't it?";
 
+  private userWelcomed($event: any) {
+    if (!$event.toState)
+      return;
+
+    this.loginPerformed.emit(this.user);
+  }
+
   public login() {
     this.locked = !this.locked;
-    console.log("TEST")
+    this.user = "Kuba"
   }
 }
