@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DesktopComponent } from './desktop/desktop.component';
+import { appRoutes } from "app/app.routes";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { DesktopComponent } from './desktop/desktop.component';
     DesktopComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,

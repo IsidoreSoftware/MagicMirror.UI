@@ -7,17 +7,4 @@ import { WelcomeComponent } from "app/welcome/welcome.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  a:string="";
-
-  @ViewChild('welcome')
-  public welcome : WelcomeComponent;
-
-  userLoggedIn(){
-    console.log("Logged in");
-  }
-
-  c(){
-    this.a = 'Kuba';
-    this.welcome.login();
-  }
 }

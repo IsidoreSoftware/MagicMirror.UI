@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { animations } from "./welcome.animations";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'welcome',
@@ -8,6 +9,10 @@ import { animations } from "./welcome.animations";
   animations: animations
 })
 export class WelcomeComponent {
+
+  constructor(private router: Router) {
+
+  }
 
   private user: string;
 
@@ -23,6 +28,7 @@ export class WelcomeComponent {
       return;
 
     this.loginPerformed.emit(this.user);
+    this.router.navigateByUrl('/desktop');
   }
 
   public login() {
