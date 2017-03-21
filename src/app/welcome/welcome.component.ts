@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { trigger, state, style, animate, transition } from "@angular/animations";
+import { trigger, state, style, animate, transition, keyframes } from "@angular/animations";
 
 @Component({
   selector: 'welcome',
@@ -9,8 +9,25 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
     trigger('isVisibleChanged', [
       state('true', style({ opacity: 1, display: 'block' })),
       state('false', style({ opacity: 0 })),
-      transition('* => 1', animate('2s')),
-      transition('1 => 0', animate('1s'))
+      transition('void => 1', animate('4s ease-in', keyframes([
+        style({ opacity: 0 }),
+        style({ opacity: 0 }),
+        style({ opacity: 1 }),
+      ]))),
+      transition('1 => 0', animate('4s ease-out', keyframes([
+        style({ opacity: 1 }),
+        style({ opacity: 0 }),
+        style({ opacity: 0 }),
+      ])))
+    ]),
+    trigger('isWelcomeMessageShown', [
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('void => 1', animate('4s ease-in', keyframes([
+        style({ opacity: 0, offset: 0 }),
+        style({ opacity: 0, offset: 0.9 }),
+        style({ opacity: 1, offset: 1 }),
+      ])))
     ])
   ],
 })

@@ -3,7 +3,7 @@
     <span [@isVisibleChanged]="!locked">Hello!</span>
     <span [@isVisibleChanged]="locked">hi, {{user}}</span>
   </div>
-  <div class="submessage">
+  <div [@isWelcomeMessageShown]="locked" class="submessage">
     {{welcomeMessage}}
   </div>
 </div>
