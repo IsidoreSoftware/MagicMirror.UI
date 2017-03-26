@@ -1,1 +1,3 @@
 Desktop
+<div *ngFor="let w of widgets | async" [innerHtml]="w.template" [ngStyle]="parse(w.style)">
+</div>
