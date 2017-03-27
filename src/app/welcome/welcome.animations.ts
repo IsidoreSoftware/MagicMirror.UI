@@ -1,8 +1,6 @@
 import { trigger, state, style, animate, transition, keyframes } from "@angular/animations";
 
-const mainAnimationDuration = '1s'
-const smallMessageAnimationDuration = '1s'
-
+const mainAnimationDuration = '2s'
 
 export var animations = [
     trigger('isVisibleChanged', [
@@ -17,15 +15,6 @@ export var animations = [
         style({ opacity: 1 }),
         style({ opacity: 0 }),
         style({ opacity: 0 }),
-      ])))
-    ]),
-    trigger('isWelcomeMessageShown', [
-      state('true', style({ opacity: 1 })),
-      state('false', style({ opacity: 0 })),
-      transition('void => 1', animate(`${smallMessageAnimationDuration} ease-in`, keyframes([
-        style({ opacity: 0, offset: 0 }),
-        style({ opacity: 0, offset: 0.7 }),
-        style({ opacity: 1, offset: 1 }),
       ])))
     ])
   ]

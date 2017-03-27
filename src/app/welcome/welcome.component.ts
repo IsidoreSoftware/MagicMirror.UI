@@ -19,7 +19,7 @@ export class WelcomeComponent {
       this.isVisible = false;
       setTimeout(() => {
         router.navigateByUrl("/desktop");
-      }, 2000);
+      }, 3000);
     }
     this.currentView = "ASD"
 
@@ -29,8 +29,8 @@ export class WelcomeComponent {
         this.currentView = info;
         this.isVisible = true;
         setTimeout(callback,
-          4000);
-      }, 1000)
+          3000);
+      }, 1500)
     }
 
     var procedureChain = new FirstScreen();
