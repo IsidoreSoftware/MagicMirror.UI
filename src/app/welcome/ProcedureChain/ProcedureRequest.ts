@@ -1,6 +1,4 @@
-type CallbackFunction = () => void;
-
 export class ProcedureRequest {
     public finalAction: () => void;
-    public progressChanged: (string, CallbackFunction) => void;
+    public progressChanged: (string: string, callback: () => void) => void;
 }

@@ -2,12 +2,7 @@ import { Procedure } from "app/welcome/ProcedureChain/Procedure";
 import { ProcedureRequest } from "app/welcome/ProcedureChain/ProcedureRequest";
 import { Observable } from "rxjs/Observable";
 
-export class WelcomeUser extends Procedure {
-
-    constructor(private userUpdate: Observable<any>) {
-        super();
-    }
-
+export class Greatings extends Procedure {
     canProceed(): boolean {
         return true;
     }
@@ -17,9 +12,8 @@ export class WelcomeUser extends Procedure {
     }
 
     processRequest(request: ProcedureRequest) {
-        this.userUpdate.subscribe((value) => {
-            request.progressChanged(`Hi, ${value.Name}`,
-                () => { super.processRequest(request) });
-        });
+        request.progressChanged(`<div class="submessage">Have a nice day dude!</div>`,
+            () => { super.processRequest(request) });
+
     }
 }
