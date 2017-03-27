@@ -24,7 +24,7 @@ export class WelcomeComponent {
   welcomeMessage: string = "The day is beatiful, isn't it?";
 
   private userWelcomed($event: any) {
-    if (!$event.toState)
+    if (!parseInt($event.toState))
       return;
 
     this.loginPerformed.emit(this.user);
