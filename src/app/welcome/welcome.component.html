@@ -1,10 +1,8 @@
 <div class="message">
   <div class="user-container">
-    <span [@isVisibleChanged]="!locked">Hello!</span>
-    <span [@isVisibleChanged]="locked">hi, {{user}}</span>
-  </div>
-  <div [@isWelcomeMessageShown]="locked" (@isWelcomeMessageShown.done)="userWelcomed($event)" class="submessage">
-    {{welcomeMessage}}
+    <div [@isVisibleChanged]="isVisible">
+      <span [innerHTML]="currentView"></span>
+    </div>
   </div>
 </div>
 <button (click)='login()'>Click</button>
