@@ -1,4 +1,4 @@
 Desktop
-<div *ngFor="let w of widgets | async" [ngStyle]="parse(w.style)">
-    <widget [template]="w.template"></widget>
+<div *ngFor="let w of widgets | async">
+    <widget [template]="w.template" [stylesFile]="w.style"></widget>
 </div>

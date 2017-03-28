@@ -18,8 +18,4 @@ export class DesktopComponent implements OnInit {
   ngOnInit() {
     this.widgets = this._widgetService.getAllMyWidgets();
   }
-
-  parse(str:string){
-    return JSON.parse(str);
-  }
 }
