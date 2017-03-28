@@ -10,12 +10,14 @@ import { DesktopComponent } from './desktop/desktop.component';
 import { appRoutes } from "app/app.routes";
 import { RouterModule } from "@angular/router";
 import { WidgetService } from "app/desktop/services/widget.service";
+import { WidgetComponent } from "app/desktop/widget-component/widget.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    DesktopComponent
+    DesktopComponent,
+    WidgetComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
