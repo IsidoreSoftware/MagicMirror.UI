@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postbuild": "tsc --p ./src/electron/ & cp ./src/electron/package.json ./dist/package.json",
-    "electron": "electron ./dist/electron.js"
+    "electron": "electron ./dist/electron.js --serve",
+    "electron:dev": "cross-env NODE_ENV=development npm run build && concurrently \"npm start\" \"npm run electron\""
   },
   "private": true,
   "dependencies": {
@@ -24,19 +25,25 @@
     "@angular/platform-browser-dynamic": "4.2.6",
     "@angular/platform-server": "4.2.6",
     "@angular/router": "4.2.6",
-    "@types/electron": "1.4.34",
     "core-js": "2.4.1",
     "electron": "1.6.11",
-    "rxjs": "5.1.0",
+    "package.json": "^2.0.1",
+    "rxjs": "^5.4.2",
     "zone.js": "0.8.4"
   },
   "devDependencies": {
     "@angular/cli": "1.2.0",
     "@angular/compiler-cli": "4.2.6",
     "@types/core-js": "0.9.37",
+    "@types/electron": "1.4.34",
     "@types/jasmine": "2.5.38",
-    "@types/node": "~6.0.60",
+    "@types/node": "^8.0.9",
+    "@types/webpack": "^3.0.2",
+    "@types/webpack-env": "^1.13.0",
     "codelyzer": "~2.0.0",
+    "concurrently": "^3.5.0",
+    "cross-env": "^5.0.1",
+    "electron-reload": "^1.2.1",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",

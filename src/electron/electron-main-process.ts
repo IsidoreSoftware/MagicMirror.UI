@@ -2,13 +2,12 @@ import { app, BrowserWindow } from 'electron'
 const path = require('path')
 const url = require('url')
 
-
 export class ElectronMainProcess {
     /**
      *
      */
     constructor() { }
-    
+
     public Run() {
 
         // This method will be called when Electron has finished
@@ -32,8 +31,8 @@ export class ElectronMainProcess {
 
         // and load the index.html of the app.
         win.loadURL(url.format({
-            pathname: path.join(__dirname, 'index.html'),
-            protocol: 'file:',
+            pathname: path.join('localhost:4200'),
+            protocol: 'http:',
             slashes: true
         }));
 
