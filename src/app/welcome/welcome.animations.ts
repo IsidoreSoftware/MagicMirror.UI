@@ -1,8 +1,8 @@
-import { trigger, state, style, animate, transition, keyframes } from "@angular/animations";
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 
-const mainAnimationDuration = '2s'
+const mainAnimationDuration = '2s';
 
-export var animations = [
+export let animations = [
     trigger('isVisibleChanged', [
       state('1', style({ opacity: 1, display: 'block' })),
       state('0', style({ opacity: 0 })),
@@ -18,3 +18,4 @@ export var animations = [
       ])))
     ])
   ]
+  

@@ -5,5 +5,5 @@ export class Widget {
     width: number;
     top: number;
     left: number;
-    modelRefreshInterval:number;
+    modelRefreshInterval: number;
 }

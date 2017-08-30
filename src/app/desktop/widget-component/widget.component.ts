@@ -1,4 +1,15 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewContainerRef, ViewChild, ComponentFactoryResolver, NgModuleFactory, Compiler, NgModule } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    OnChanges,
+    SimpleChanges,
+    ViewContainerRef,
+    ViewChild,
+    ComponentFactoryResolver,
+    NgModuleFactory,
+    Compiler,
+    NgModule } from '@angular/core';
 
 @Component({
     selector: 'widget',
@@ -10,10 +21,10 @@ export class WidgetComponent implements OnInit {
     dynamicModule: NgModuleFactory<any>;
 
     @Input()
-    template: string="";
+    template = '';
 
     @Input()
-    stylesFile: string = "";
+    stylesFile = '';
 
     constructor(private compiler: Compiler) {
     }
