@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
-import { DesktopComponent } from "app/desktop/desktop.component";
-import { WelcomeComponent } from "app/welcome/welcome.component";
+import { DesktopComponent } from 'app/desktop/desktop.component';
+import { WelcomeComponent } from 'app/welcome/welcome.component';
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },

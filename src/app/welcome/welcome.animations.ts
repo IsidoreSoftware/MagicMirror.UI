@@ -17,5 +17,4 @@ export let animations = [
         style({ opacity: 0 }),
       ])))
     ])
-  ]
-  
+  ];

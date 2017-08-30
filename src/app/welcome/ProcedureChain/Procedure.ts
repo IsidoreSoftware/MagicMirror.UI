@@ -1,4 +1,4 @@
-import { ProcedureRequest } from "./ProcedureRequest"
+import { ProcedureRequest } from './ProcedureRequest';
 
 export abstract class Procedure {
 
@@ -13,13 +13,10 @@ export abstract class Procedure {
         if (this.canProceed()) {
             if (this.successor) {
                 this.successor.processRequest(request);
+            } else {
+                request.finalAction();
             }
-            else {
-                request.finalAction()
-            }
-        }
-        else
-        {
+        } else {
             this.handleError();
         }
     }

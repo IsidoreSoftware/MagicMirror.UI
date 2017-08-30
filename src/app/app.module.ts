@@ -7,10 +7,10 @@ import { HttpModule, Http } from '@angular/http';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DesktopComponent } from './desktop/desktop.component';
-import { appRoutes } from "app/app.routes";
-import { RouterModule } from "@angular/router";
-import { WidgetService } from "app/desktop/services/widget.service";
-import { WidgetComponent } from "app/desktop/widget-component/widget.component";
+import { appRoutes } from 'app/app.routes';
+import { RouterModule } from '@angular/router';
+import { WidgetService } from 'app/desktop/services/widget.service';
+import { WidgetComponent } from 'app/desktop/widget-component/widget.component';
 
 @NgModule({
   declarations: [

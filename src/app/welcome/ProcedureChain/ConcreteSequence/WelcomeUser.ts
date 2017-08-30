@@ -19,7 +19,7 @@ export class WelcomeUser extends Procedure {
     processRequest(request: ProcedureRequest) {
         this.userUpdate.subscribe((value) => {
             request.progressChanged(`Hi, ${value.Name}`,
-                () => { super.processRequest(request) });
+                () => { super.processRequest(request); });
         });
     }
 }

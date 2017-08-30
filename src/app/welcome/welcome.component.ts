@@ -24,13 +24,13 @@ export class WelcomeComponent {
   public onLogin: EventEmitter<User> = new EventEmitter();
 
   constructor(private router: Router) {
-    let request = new ProcedureRequest();
+    const request = new ProcedureRequest();
     request.finalAction = () => {
       this.isVisible = false;
       setTimeout(() => {
         router.navigateByUrl('/desktop');
       }, 2000);
-    }
+    };
 
     request.progressChanged = (info: string, callback: () => void) => {
       this.isVisible = false;
