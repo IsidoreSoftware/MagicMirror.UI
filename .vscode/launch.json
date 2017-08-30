@@ -15,7 +15,7 @@
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
             "preLaunchTask":"tsc",
             "runtimeArgs": [
-                "--enable-logging",
+                //"--enable-logging",
                 "--serve"
             ],
             "env": {},
