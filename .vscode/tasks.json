@@ -5,11 +5,11 @@
     "tasks": [
         {
             "taskName": "tsc",
-            "command": "cmd",
-            "args": [
-                "/C",
-                "tsc --p ./src/electron/"
-            ]
+            "command": "tsc",
+            "windows":{
+                "command": "tsc.CMD"
+            },
+            "args": ["--p","./src/electron/"]
         }
     ]
 }
