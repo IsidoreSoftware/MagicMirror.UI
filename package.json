@@ -26,7 +26,7 @@
     "@angular/platform-server": "4.2.6",
     "@angular/router": "4.2.6",
     "core-js": "2.4.1",
-    "electron": "1.6.11",
+    "electron": "1.7.5",
     "package.json": "^2.0.1",
     "rxjs": "^5.4.2",
     "zone.js": "0.8.4"

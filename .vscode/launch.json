@@ -3,30 +3,30 @@
     "configurations": [
         {
             "name": "Launch",
+            "outFiles": [
+                "${workspaceRoot}/dist/**/*.js"
+            ],
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/src/electron/electron.ts",
+            "program": "${workspaceRoot}/dist/electron.js",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+            "preLaunchTask":"tsc",
             "runtimeArgs": [
-                ".",
-                "--enable-logging"
+                "--enable-logging",
+                "--serve"
             ],
             "env": {},
-            "console": "externalTerminal",
-            "sourceMaps": true,
-            "outFiles": [
-                "${workspaceRoot}/dist/**/*.js"
-            ]
+            "sourceMaps": true
         },
         {
             "name": "Attach",
             "type": "node",
             "request": "attach",
             "port": 5858,
-            "sourceMaps": false,
+            "sourceMaps": true,
             "outFiles": []
         }
     ]

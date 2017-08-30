@@ -30,4 +30,3 @@ import { WidgetComponent } from "app/desktop/widget-component/widget.component";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-  

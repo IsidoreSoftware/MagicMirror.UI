@@ -4,6 +4,7 @@
   "main"    : "electron.bundle.js",
   "description": "Frontend app for Magic Mirror",
   "copyright": "Copyright © 2017 Isidore Software",
+  "private": true,
   "author": {
     "name": "Isidore Software",
     "email": "kuba@matjanowski.pl",

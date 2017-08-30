@@ -20,6 +20,9 @@ export class WelcomeComponent {
   private currentView: string;
   private isVisible = true;
 
+  @Output('onLogin')
+  public onLogin: EventEmitter<User> = new EventEmitter();
+
   constructor(private router: Router) {
     let request = new ProcedureRequest();
     request.finalAction = () => {
@@ -36,11 +39,12 @@ export class WelcomeComponent {
         this.isVisible = true;
         setTimeout(callback,
           5000);
-      }, 1500)
-    }
-    this.user = this.loginPerformed.asObservable()
+      }, 1500);
+    };
 
-    let procedureChain = new FirstScreen();
+    this.user = this.onLogin.asObservable();
+
+    const procedureChain = new FirstScreen();
     procedureChain
           .setSuccessor(new WelcomeUser(this.user))
           .setSuccessor(new Greatings());
@@ -49,9 +53,6 @@ export class WelcomeComponent {
 
   public login() {
     const u = { Name: 'Kuba' };
-    this.loginPerformed.emit(u);
+    this.onLogin.emit(u);
   }
-
-  @Output('login')
-  public loginPerformed: EventEmitter<User> = new EventEmitter();
 }

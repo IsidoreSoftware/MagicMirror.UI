@@ -27,11 +27,12 @@ export class ElectronMainProcess {
 
     public OpenMainWindow() {
         // Create the browser window.
-        let win = new BrowserWindow({ width: 900, height: 900, frame: false, titleBarStyle: 'hidden' })
+        let win = new BrowserWindow({ width: 900, height: 900, frame: false, titleBarStyle: 'hidden' });
 
         // and load the index.html of the app.
+        const siteLocation = path.join('localhost:4200');
         win.loadURL(url.format({
-            pathname: path.join('localhost:4200'),
+            pathname: siteLocation,
             protocol: 'http:',
             slashes: true
         }));
