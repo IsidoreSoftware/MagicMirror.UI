@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css'],
+  styleUrls: ['./welcome.component.scss'],
   animations: animations
 })
 export class WelcomeComponent {

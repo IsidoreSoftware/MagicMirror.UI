@@ -4,12 +4,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "tsc",
-            "command": "tsc",
+            "taskName": "npm",
+            "command": "npm",
             "windows":{
-                "command": "tsc.CMD"
+                "command": "npm.CMD"
             },
-            "args": ["--p","./src/electron/"]
+            "args": ["run","postbuild"]
         }
     ]
 }

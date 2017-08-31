@@ -11,6 +11,7 @@ import { appRoutes } from 'app/app.routes';
 import { RouterModule } from '@angular/router';
 import { WidgetService } from 'app/desktop/services/widget.service';
 import { WidgetComponent } from 'app/desktop/widget-component/widget.component';
+import { CameraModule } from 'app/camera/camera.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WidgetComponent } from 'app/desktop/widget-component/widget.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CameraModule
   ],
   providers: [WidgetService],
   bootstrap: [AppComponent]

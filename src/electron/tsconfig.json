@@ -15,6 +15,7 @@
     ]
   },
   "files": [
-    "./electron.ts"
+    "./electron.ts",
+    "./camera/camera-process.ts"
   ]
 }

@@ -9,7 +9,6 @@ export class ElectronMainProcess {
     constructor() { }
 
     public Run() {
-
         // This method will be called when Electron has finished
         // initialization and is ready to create browser windows.
         // Some APIs can only be used after this event occurs.
@@ -38,7 +37,9 @@ export class ElectronMainProcess {
         }));
 
         // Open the DevTools.
-        win.webContents.openDevTools();
+        if (process.env.NODE_ENV === 'development') {
+            win.webContents.openDevTools();
+        }
 
         // Emitted when the window is closed.
         win.on('closed', () => {
