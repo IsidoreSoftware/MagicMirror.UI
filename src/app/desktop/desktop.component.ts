@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WidgetService } from 'app/desktop/services/widget.service';
 import { Observable } from 'rxjs/Rx';
 import { Widget } from 'app/desktop/models/widget';
+import { WidgetService } from 'app/desktop/services/widget.service';
 
 @Component({
   selector: 'desktop',

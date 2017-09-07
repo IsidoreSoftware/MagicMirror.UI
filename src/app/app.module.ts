@@ -28,7 +28,6 @@ import { CameraModule } from 'app/camera/camera.module';
     HttpModule,
     CameraModule
   ],
-  providers: [WidgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
