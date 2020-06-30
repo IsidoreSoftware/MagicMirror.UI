@@ -45,6 +45,8 @@ export class WelcomeComponent {
           .setSuccessor(new WelcomeUser(this.user))
           .setSuccessor(new Greatings());
     procedureChain.processRequest(request);
+
+    this.login();
   }
 
   public login() {
