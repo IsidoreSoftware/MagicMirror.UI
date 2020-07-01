@@ -11,7 +11,7 @@ export class WidgetService {
     }
 
     public getAllMyWidgets(): Observable<Widget[]> {
-        return this._http.get("http://localhost:7011/widgets/1")
+        return this._http.get("http://localhost:58593/widgets/1")
             .filter(response => response.ok)
             .map(response => response.json())
             .map(json => <Widget[]>json);
