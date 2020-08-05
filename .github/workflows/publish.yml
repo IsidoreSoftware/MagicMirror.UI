@@ -6,9 +6,9 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ develop ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,7 +38,7 @@ jobs:
         # The connection string for the storage account
         connection_string: ${{ secrets.BlobConnectionString }}
         # The name of the storage account container these assets will be uploaded to
-        container_name: develop
+        container_name: "$web"
         # The name of the directory you want to upload
         source_dir: "dist"
 
