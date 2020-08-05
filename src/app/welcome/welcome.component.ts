@@ -17,8 +17,8 @@ import { Observable } from 'rxjs/Observable';
 export class WelcomeComponent {
 
   private user: Observable<User>;
-  private currentView: string;
-  private isVisible = true;
+  public currentView: string;
+  public isVisible = true;
 
   constructor(private router: Router) {
     let request = new ProcedureRequest();
