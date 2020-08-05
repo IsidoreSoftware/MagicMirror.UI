@@ -31,12 +31,16 @@ jobs:
       run: npm run publish:web
 
     - name: Azure Blob Storage Upload
-      uses: bacongobbler/azure-blob-storage-upload@v1.1.0
+      uses: actions/upload-artifact@master
       with:
-        # The name of the storage account container these assets will be uploaded to
-        container_name: develop
-        # The connection string for the storage account
-        connection_string: ${{ secrets.BlobConnectionString }}
-        # The name of the directory you want to upload
-        source_dir: dist
-
+        name: dist
+        path: dist
+  publish:
+    steps:
+      - name: Azure storage upload
+        uses: fixpoint/azblob-upload-artifact@v4
+        with:
+          connection-string: ${{ secrets.BlobConnectionString }}
+          name: dist
+          container: '$web'
+          path: .
