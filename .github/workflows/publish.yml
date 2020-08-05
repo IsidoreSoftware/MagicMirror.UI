@@ -36,6 +36,7 @@ jobs:
         name: dist
         path: dist
   publish:
+    runs-on: ubuntu-latest
     steps:
       - name: Azure storage upload
         uses: fixpoint/azblob-upload-artifact@v4
