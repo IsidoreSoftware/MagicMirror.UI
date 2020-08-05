@@ -30,7 +30,7 @@ jobs:
     - name: publish
       run: npm run publish:web
 
-    - name: Azure Blob Storage Upload
+    - name: publish artifact
       uses: actions/upload-artifact@master
       with:
         name: dist
