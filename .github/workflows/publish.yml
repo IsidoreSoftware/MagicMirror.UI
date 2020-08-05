@@ -43,6 +43,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
+          path: dist
       - name: Azure Blob Storage Upload
         uses: bacongobbler/azure-blob-storage-upload@v1.1.0
         with:
