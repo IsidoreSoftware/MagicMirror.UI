@@ -46,10 +46,7 @@ jobs:
           path: dist
       - name: show folders
         run: ls -la
-      - name: Azure Blob Storage Upload
-        uses: bacongobbler/azure-blob-storage-upload@v1.1.0
+      - name: Azure Storage upload
+        uses: Azure/cli@v1.0.0
         with:
-          connection_string: ${{ secrets.BLOBCONNECTIONSTRING }}
-          container_name: develop
-          source_dir: dist
-          sync: true
+          inlineScript: az storage blob upload-batch -d $web -s dist --connection-string ${{ secrets.BLOBCONNECTIONSTRING }}
