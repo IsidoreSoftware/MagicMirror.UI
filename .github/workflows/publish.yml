@@ -52,4 +52,4 @@ jobs:
           connection_string: ${{ secrets.BLOBCONNECTIONSTRING }}
           container_name: $web
           source_dir: dist
-          sync: false
+          sync: true
