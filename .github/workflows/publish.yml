@@ -39,10 +39,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Azure storage upload
-        uses: fixpoint/azblob-upload-artifact@v4
+      - run: ls
+        name: show content
+      - name: Azure Blob Storage Upload
+        uses: bacongobbler/azure-blob-storage-upload@v1.1.0
         with:
-          connection-string: ${{ secrets.BlobConnectionString }}
-          name: dist
-          container: '$web'
-          path: .
+          connection_string: ${{ secrets.BLOBCONNECTIONSTRING }}
+          container_name: $web
+          source_dir: dist
+          sync: false
