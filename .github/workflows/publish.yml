@@ -43,6 +43,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
+      - name: show folders
+        run: ls -la
       - name: Azure Blob Storage Upload
         uses: bacongobbler/azure-blob-storage-upload@v1.1.0
         with:
