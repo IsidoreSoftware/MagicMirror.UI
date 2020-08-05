@@ -47,6 +47,8 @@ jobs:
       - name: show folders
         run: ls -la
       - name: Azure Storage upload
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.BLOBCONNECTIONSTRING }}
         uses: Azure/cli@v1.0.0
         with:
-          inlineScript: az storage blob upload-batch -d '$web' -s dist --connection-string ${{ secrets.BLOBCONNECTIONSTRING }}
+          inlineScript: az storage blob upload-batch -d '$web' -s dist
