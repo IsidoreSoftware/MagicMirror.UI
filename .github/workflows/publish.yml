@@ -49,4 +49,4 @@ jobs:
       - name: Azure Storage upload
         uses: Azure/cli@v1.0.0
         with:
-          inlineScript: az storage blob upload-batch -d '$web' -s dist --connection-string DefaultEndpointsProtocol=https;AccountName=magicmirrorfrontend;AccountKey=KYnxe/Jrx748ItYxOnK3wTzYhX4xJzRhD1n5Gtba1sqsAr8MXOzer3MVuAmYapQHDeYcIiENCFMs1f8h1pXbMA==;EndpointSuffix=core.windows.net
+          inlineScript: az storage blob upload-batch -d '$web' -s dist --connection-string 'DefaultEndpointsProtocol=https;AccountName=magicmirrorfrontend;AccountKey=KYnxe/Jrx748ItYxOnK3wTzYhX4xJzRhD1n5Gtba1sqsAr8MXOzer3MVuAmYapQHDeYcIiENCFMs1f8h1pXbMA==;EndpointSuffix=core.windows.net'
