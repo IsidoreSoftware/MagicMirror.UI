@@ -48,7 +48,7 @@ jobs:
         run: ls -la
       - name: Azure Storage upload
         env:
-          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.BLOBCONNECTIONSTRING }}
+          AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=https;AccountName=magicmirrorfrontend;AccountKey=KYnxe/Jrx748ItYxOnK3wTzYhX4xJzRhD1n5Gtba1sqsAr8MXOzer3MVuAmYapQHDeYcIiENCFMs1f8h1pXbMA==;EndpointSuffix=core.windows.net
         uses: Azure/cli@v1.0.0
         with:
-          inlineScript: az storage blob upload-batch -d '$web' -s dist --connection-string '$AZURE_STORAGE_CONNECTION_STRING'
+          inlineScript: az storage blob upload-batch -d '$web' -s dist --connection-string $AZURE_STORAGE_CONNECTION_STRING
