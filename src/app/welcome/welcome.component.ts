@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { animations } from './welcome.animations';
 import { Router } from '@angular/router';
 import { ProcedureRequest } from 'app/welcome/ProcedureChain/ProcedureRequest';
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./welcome.component.css'],
   animations: animations
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements OnInit {
 
   private user: Observable<User>;
   public currentView: string;
@@ -42,12 +42,21 @@ export class WelcomeComponent {
 
     let procedureChain = new FirstScreen();
     procedureChain
-          .setSuccessor(new WelcomeUser(this.user))
-          .setSuccessor(new Greatings());
+      .setSuccessor(new WelcomeUser(this.user))
+      .setSuccessor(new Greatings());
     procedureChain.processRequest(request);
 
     this.login();
   }
+
+  ngOnInit(): void {
+
+    //we're duing automatic login now... At some point get face and login then.
+    let self = this;
+    setTimeout(() => self.login(), 8000);
+  }
+
+
 
   public login() {
     const u = { Name: 'Kuba' };

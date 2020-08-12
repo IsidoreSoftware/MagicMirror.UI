@@ -11,6 +11,7 @@ import { appRoutes } from "app/app.routes";
 import { RouterModule } from "@angular/router";
 import { WidgetService } from "app/desktop/services/widget.service";
 import { WidgetComponent } from "app/desktop/widget-component/widget.component";
+import { WeatherService } from './desktop/services/weather.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { WidgetComponent } from "app/desktop/widget-component/widget.component";
     FormsModule,
     HttpModule
   ],
-  providers: [WidgetService],
+  providers: [
+    WidgetService,
+    WeatherService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

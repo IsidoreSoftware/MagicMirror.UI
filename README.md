@@ -1,7 +1,9 @@
 # IsidoreMagicMirror
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
-
+## Start on Raspberry
+DISPLAY=:0 /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk https://magicmirrorfrontend.z5.web.core.windows.net/
+and 
+https://pimylifeup.com/raspberry-pi-kiosk/
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
