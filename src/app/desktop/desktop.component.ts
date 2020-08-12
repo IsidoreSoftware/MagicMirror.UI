@@ -18,11 +18,11 @@ export class DesktopComponent implements OnInit {
   public now: Date = new Date();
   public weather: Observable<any>;
 
-  public widgets: Observable<Widget[]>
+  public widgets: Observable<Widget[]>;
 
   ngOnInit() {
     this.widgets = this._widgetService.getAllMyWidgets();
-    this.weather = this._weatherService.getCurrentWeather();
+    this.weather = Observable.timer(0,60000).flatMap(() => this._weatherService.getCurrentWeather());
 
     setInterval(() => {
       this.now = new Date();
