@@ -22,7 +22,7 @@ export class DesktopComponent implements OnInit {
 
   ngOnInit() {
     this.widgets = this._widgetService.getAllMyWidgets();
-    this.weather = this._weatherService.getCurrentWeather();
+    this.weather = Observable.interval(60000).flatMap(() => this._weatherService.getCurrentWeather());
 
     setInterval(() => {
       this.now = new Date();
