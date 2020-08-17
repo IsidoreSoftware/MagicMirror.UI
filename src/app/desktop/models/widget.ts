@@ -1,3 +1,5 @@
+import { Timespan } from "./timespan";
+
 export class Widget {
     name: string;
     template: string;
@@ -5,5 +7,5 @@ export class Widget {
     width: number;
     top: number;
     left: number;
-    modelRefreshInterval:number;
+    modelRefreshInterval: Timespan;
 }

@@ -12,10 +12,10 @@ export class WeatherService {
     private key: string = '33e7f73a89ec847c9d432133612ef48b';
     private city: string = 'Torun,pl';
 
-    public getCurrentWeather(): Observable<any> {
+    public getCurrentWeather(): Observable<number> {
         return this._http.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=` + this.city + `&appid=` + this.key)
             .filter(response => response.ok)
             .map(response => response.json())
-            .map(json => <Widget[]>json);
+            .map(json => json.main.temp);
     }
 }

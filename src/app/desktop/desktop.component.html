@@ -1,14 +1,14 @@
 <div class="desktop-container">
     <div *ngFor="let w of widgets | async">
-        <widget [template]="w.template" [stylesFile]="w.style"></widget>
+        <widget [template]="w.template" [stylesFile]="w.style" [refreshFrequency]="w.modelRefreshInterval"></widget>
     </div>
-    <div class="weather-box">
-        <div class="outside">{{(weather | async).main.temp/1| number:'1.0-0'}}° <i class="icon flaticon-082-rain-9"></i></div>
+    <!--div class="weather-box">
+        <div class="outside">{{(weather | async) | number:'1.0-0'}}° <i class="icon flaticon-082-rain-9"></i></div>
         <div class="inside">24° <i class="icon flaticon-082-rain-9"></i></div>
     </div>
     <div class="time-box">
         <div class="time">{{ now | date:'shortTime'}}</div>
         <div class="date">{{ now | date:'EEEE'}}</div>
         <div class="date">{{ now | date:'mediumDate'}}</div>
-    </div>
+    </div-->
 </div>
