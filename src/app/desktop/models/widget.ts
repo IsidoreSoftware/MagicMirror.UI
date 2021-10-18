@@ -6,4 +6,5 @@ export class Widget {
     top: number;
     left: number;
     modelRefreshInterval:number;
+    style:string;
 }

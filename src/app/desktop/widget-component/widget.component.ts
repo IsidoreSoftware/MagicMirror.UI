@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewContainerRef, ViewChild, ComponentFactoryResolver, NgModuleFactory, Compiler, NgModule } from '@angular/core';
+import { Component, OnInit, Input, NgModuleFactory, Compiler, NgModule } from '@angular/core';
 
 @Component({
     selector: 'widget',
@@ -37,17 +37,17 @@ export class WidgetComponent implements OnInit {
         return RuntimeComponentModule;
     }
 
-    protected createNewComponent(template: string, styles: string) {
+    protected createNewComponent(templateCnt: string, styles: string) {
         @Component({
             selector: 'dynamic-component',
-            template: template,
+            template: templateCnt,
             styles: [styles]
         })
         class DynamicComponent implements OnInit {
             text: any;
 
             ngOnInit() {
-                this.text = template;
+                this.text = templateCnt;
             }
         }
         return DynamicComponent;

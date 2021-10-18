@@ -1,6 +1,6 @@
-import { Procedure } from 'app/welcome/ProcedureChain/Procedure';
-import { ProcedureRequest } from 'app/welcome/ProcedureChain/ProcedureRequest';
-import { Observable } from 'rxjs/Observable';
+import { Procedure } from '../../../welcome/ProcedureChain/Procedure';
+import { ProcedureRequest } from '../../../welcome/ProcedureChain/ProcedureRequest';
+import { Observable } from 'rxjs';
 
 export class WelcomeUser extends Procedure {
 

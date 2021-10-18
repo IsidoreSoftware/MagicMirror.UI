@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { animations } from './welcome.animations';
 import { Router } from '@angular/router';
-import { ProcedureRequest } from 'app/welcome/ProcedureChain/ProcedureRequest';
-import { FirstScreen } from 'app/welcome/ProcedureChain/ConcreteSequence/FirstScreen';
-import { WelcomeUser } from 'app/welcome/ProcedureChain/ConcreteSequence/WelcomeUser';
-import { User } from 'app/welcome/models/user';
-import { Greatings } from 'app/welcome/ProcedureChain/ConcreteSequence/Greatings';
-import { Observable } from 'rxjs/Observable';
+import { ProcedureRequest } from '../../app/welcome/ProcedureChain/ProcedureRequest';
+import { FirstScreen } from '../../app/welcome/ProcedureChain/ConcreteSequence/FirstScreen';
+import { WelcomeUser } from '../../app/welcome/ProcedureChain/ConcreteSequence/WelcomeUser';
+import { User } from '../../app/welcome/models/user';
+import { Greatings } from '../../app/welcome/ProcedureChain/ConcreteSequence/Greatings';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'welcome',
