@@ -1,13 +1,11 @@
-import { Component, OnInit, Input, NgModuleFactory, Compiler, NgModule } from '@angular/core';
+import { Component, OnInit, Input, Compiler, NgModule, ViewChild } from '@angular/core';
+import { WidgetDirective } from './widget.directive';
 
 @Component({
     selector: 'widget',
-    template: `<ng-container *ngComponentOutlet="dynamicComponent;
-                            ngModuleFactory: dynamicModule;"></ng-container>`
+    template: `<ng-template widgetHost></ng-template>`
 })
 export class WidgetComponent implements OnInit {
-    dynamicComponent;
-    dynamicModule: NgModuleFactory<any>;
 
     @Input()
     template: string="";
@@ -15,41 +13,19 @@ export class WidgetComponent implements OnInit {
     @Input()
     stylesFile: string = "";
 
-    constructor(private compiler: Compiler) {
-    }
+
+    @ViewChild(WidgetDirective, {static: true}) widgetHost!: WidgetDirective;
+
 
     ngOnInit() {
-        this.dynamicComponent = this.createNewComponent(this.template, this.stylesFile  );
-        this.dynamicModule = this.compiler.compileModuleSync(this.createComponentModule(this.dynamicComponent));
-    }
-
-    protected createComponentModule(componentType: any) {
-        @NgModule({
-            imports: [],
-            declarations: [
-                componentType
-            ],
-            entryComponents: [componentType]
-        })
-        class RuntimeComponentModule {
-        }
-        // a module for just this Type
-        return RuntimeComponentModule;
+        this.createNewComponent(this.template, this.stylesFile );
     }
 
     protected createNewComponent(templateCnt: string, styles: string) {
-        @Component({
-            selector: 'dynamic-component',
-            template: templateCnt,
-            styles: [styles]
-        })
-        class DynamicComponent implements OnInit {
-            text: any;
-
-            ngOnInit() {
-                this.text = templateCnt;
-            }
-        }
-        return DynamicComponent;
+        const viewContainerRef = this.widgetHost.viewContainerRef;
+        const componentRef = viewContainerRef.createEmbeddedView<Component>( null);
+        componentRef.context.styles = [styles];
+        componentRef.context.template = templateCnt;
+        componentRef.reattach();
     }
 }
