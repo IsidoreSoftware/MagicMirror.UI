@@ -10,6 +10,6 @@ export class WidgetService {
     }
 
     public getAllMyWidgets(): Observable<Widget[]> {
-        return this._http.get<Widget[]>("http://localhost:58593/widgets/1");
+        return this._http.get<Widget[]>("https://localhost:5001/widgets/1");
     }
 }

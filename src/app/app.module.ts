@@ -13,7 +13,6 @@ import { WidgetService } from "../app/desktop/services/widget.service";
 import { WidgetComponent } from "../app/desktop/widget-component/widget.component";
 import { WeatherService } from '../app/desktop/services/weather.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,7 @@ import { WeatherService } from '../app/desktop/services/weather.service';
   ],
   providers: [
     WidgetService,
-    WeatherService,
+    WeatherService
   ],
   bootstrap: [AppComponent]
 })
