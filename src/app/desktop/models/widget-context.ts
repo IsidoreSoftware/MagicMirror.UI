@@ -1,6 +1,6 @@
 import { Observable, interval } from "rxjs";
 
-export class WidgetContext {
+export class WidgetContext{
   private clock = interval(1000);
 
   constructor() {

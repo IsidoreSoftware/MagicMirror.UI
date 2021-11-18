@@ -11,7 +11,6 @@ import {
   ViewContainerRef,
 } from "@angular/core";
 import { WidgetContext } from "../models/widget-context";
-import { WidgetDirective } from "./widget.directive";
 
 @Component({
   selector: "widget",
@@ -42,7 +41,6 @@ export class WidgetComponent implements AfterViewInit {
   }
 
   protected createNewComponent(templateCnt: string, styles: string) {
-    console.log(templateCnt);
     const tmpCmp = Component({ template: templateCnt, styles: [styles] })(
       class {
         context = new WidgetContext()
