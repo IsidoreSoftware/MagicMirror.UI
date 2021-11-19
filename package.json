@@ -22,7 +22,7 @@
     "e2e:show-trace": "playwright show-trace e2e/tracing/trace.zip",
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint",
-    "publish:web": "ng build --prod"
+    "web:prod": "ng build --prod"
   },
   "dependencies": {
     "@angular/animations": "13.0.2",
