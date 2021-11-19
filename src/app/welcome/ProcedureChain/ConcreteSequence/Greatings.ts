@@ -1,6 +1,5 @@
-import { Procedure } from "app/welcome/ProcedureChain/Procedure";
-import { ProcedureRequest } from "app/welcome/ProcedureChain/ProcedureRequest";
-import { Observable } from "rxjs/Observable";
+import { Procedure } from "../../ProcedureChain/Procedure";
+import { ProcedureRequest } from "../../ProcedureChain/ProcedureRequest";
 
 export class Greatings extends Procedure {
     canProceed(): boolean {

@@ -4,12 +4,18 @@
 /dist
 /tmp
 /out-tsc
+/app-builds
+/release
+main.js
+src/**/*.js
+!src/karma.conf.js
+*.js.map
 
 # dependencies
-/node_modules
+node_modules
 
 # IDEs and editors
-/.idea
+.idea
 .project
 .classpath
 .c9/
@@ -19,15 +25,16 @@
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
+.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage
 /libpeerconnection.log
 npm-debug.log
 testem.log
@@ -35,11 +42,9 @@ testem.log
 
 # e2e
 /e2e/*.js
+!/e2e/protractor.conf.js
 /e2e/*.map
 
 # System Files
 .DS_Store
 Thumbs.db
-
-yarn.lock
-npm-debug.log*

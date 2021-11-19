@@ -1,55 +1,73 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewContainerRef, ViewChild, ComponentFactoryResolver, NgModuleFactory, Compiler, NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  AfterViewInit,
+  Input,
+  Compiler,
+  NgModule,
+  ViewChild,
+  Injector,
+  NgModuleRef,
+  ViewContainerRef,
+} from "@angular/core";
+import { WidgetContext } from "../models/widget-context";
 
 @Component({
-    selector: 'widget',
-    template: `<ng-container *ngComponentOutlet="dynamicComponent;
-                            ngModuleFactory: dynamicModule;"></ng-container>`
+  selector: "widget",
+  template: `<ng-template #vc></ng-template>
+    <h2 *ngIf="error">
+      {{ error }}
+    </h2> `,
 })
-export class WidgetComponent implements OnInit {
-    dynamicComponent;
-    dynamicModule: NgModuleFactory<any>;
+export class WidgetComponent implements AfterViewInit {
+  @Input()
+  template: string = "";
 
-    @Input()
-    template: string="";
+  @Input()
+  stylesFile: string = "";
 
-    @Input()
-    stylesFile: string = "";
+  error: string;
 
-    constructor(private compiler: Compiler) {
-    }
+  @ViewChild("vc", { read: ViewContainerRef }) vc: ViewContainerRef;
 
-    ngOnInit() {
-        this.dynamicComponent = this.createNewComponent(this.template, this.stylesFile  );
-        this.dynamicModule = this.compiler.compileModuleSync(this.createComponentModule(this.dynamicComponent));
-    }
+  constructor(
+    private _compiler: Compiler,
+    private _injector: Injector,
+    private _m: NgModuleRef<any>
+  ) {}
 
-    protected createComponentModule(componentType: any) {
-        @NgModule({
-            imports: [],
-            declarations: [
-                componentType
-            ],
-            entryComponents: [componentType]
+  ngAfterViewInit() {
+    this.createNewComponent(this.template, this.stylesFile);
+  }
+
+  protected createNewComponent(templateCnt: string, styles: string) {
+    const tmpCmp = Component({ template: templateCnt, styles: [styles] })(
+      class {
+        context = new WidgetContext()
+      }
+    );
+    const tmpModule = NgModule({
+      declarations: [tmpCmp],
+      imports: [CommonModule],
+    })(class {});
+
+    try {
+      this._compiler
+        .compileModuleAndAllComponentsAsync(tmpModule)
+        .then((factories) => {
+          const f = factories.componentFactories[0];
+          const cmpRef = f.create(this._injector, [], null, this._m);
+          cmpRef.instance.name = "dynamic";
+          this.vc.insert(cmpRef.hostView);
         })
-        class RuntimeComponentModule {
-        }
-        // a module for just this Type
-        return RuntimeComponentModule;
+        .catch(this.handleError);
+    } catch (err) {
+      this.handleError(err);
     }
+  }
 
-    protected createNewComponent(template: string, styles: string) {
-        @Component({
-            selector: 'dynamic-component',
-            template: template,
-            styles: [styles]
-        })
-        class DynamicComponent implements OnInit {
-            text: any;
-
-            ngOnInit() {
-                this.text = template;
-            }
-        }
-        return DynamicComponent;
-    }
+  private handleError(err) {
+    console.log(err);
+    this.error = err;
+  }
 }

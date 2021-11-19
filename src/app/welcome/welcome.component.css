@@ -26,7 +26,7 @@ body {
   background-color: transparent;
 }
 
- /deep/ .submessage {
+::ng-deep .submessage {
   position: relative;
   font-family: 'Titillium Web', sans-serif;
   font-size: 0.3em;
