@@ -41,7 +41,7 @@ test.describe('Check Home Page', async () => {
     expect(windowState.isCrashed).toBeFalsy();
   });
 
-  test('Check Home Page design', async ({ browserName}) => {
+  test('Hello view looks good', async ({ browserName}) => {
     await firstWindow.waitForTimeout(4000);
     // Uncomment if you change the design of Home Page in order to create a new screenshot
     const screenshot = await firstWindow.screenshot({ path: '/tmp/home.png' });

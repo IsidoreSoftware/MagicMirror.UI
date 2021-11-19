@@ -9,7 +9,7 @@ const config = {
     launchOptions: {
       slowMo: 1000,
     },
-    trace: 'on',
+    trace: 'off',
   },
   expect: {
     toMatchSnapshot: { threshold: 0.2 },
