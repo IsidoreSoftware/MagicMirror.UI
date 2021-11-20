@@ -6,25 +6,28 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-electron'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      'karma-jasmine',
+      'karma-coverage',
+      'karma-chrome-launcher',
+      'karma-electron',
+      'karma-jasmine-html-reporter',
+      '@angular-devkit/build-angular/plugins/karma'
     ],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../coverage'),
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true
+    coverageReporter: {
+      dir: '../coverage',
+      reporters: [
+        { type: 'html', subdir: 'report-html' },
+        { type: 'lcovonly', subdir: 'report-lcov' }
+      ]
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['AngularElectron'],
+    browsers: ['AngularElectron','ChromeHeadless'],
     customLaunchers: {
       AngularElectron: {
         base: 'Electron',
@@ -38,7 +41,7 @@ module.exports = function (config) {
             allowRunningInsecureContent: true,
             enableRemoteModule: true,
             contextIsolation: false
-          }
+          },
         }
       }
     }
