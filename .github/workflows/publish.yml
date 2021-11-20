@@ -52,6 +52,7 @@ jobs:
 
     - name: Run headless e2e test
       uses: GabrielBB/xvfb-action@v1
+      continue-on-error: true
       with:
         run: npm run e2e
       
@@ -63,6 +64,12 @@ jobs:
       with:
         name: dist
         path: dist
+
+    - name: publish screenshots tests
+      uses: actions/upload-artifact@master
+      with:
+        name: e2e-screenshots
+        path: screenshots
   publish:
     runs-on: ubuntu-latest
     needs: build
