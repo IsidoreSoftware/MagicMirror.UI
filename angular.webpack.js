@@ -17,6 +17,9 @@ module.exports = (config, options) => {
             if (fileReplacementParts.length > 1 && ['web'].indexOf(fileReplacementParts[1]) >= 0) {
                 config.target = 'web';
             }
+            if (fileReplacementParts.length > 1 && ['webprod'].indexOf(fileReplacementParts[1]) >= 0) {
+                config.target = 'web';
+            }
             break;
         }
     }
