@@ -69,7 +69,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: e2e-screenshots
-        path: screenshots
+        path: e2e/screenshots
   publish:
     runs-on: ubuntu-latest
     needs: build
