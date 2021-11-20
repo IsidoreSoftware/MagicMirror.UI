@@ -26,6 +26,12 @@ jobs:
     # Runs a single command using the runners shell
     - name: install dependencies
       run: npm install
+
+    - name: Tests
+      run: npm run test
+
+    - name: E2E tests
+      run: npm run e2e
       
     - name: publish
       run: npm run web:prod
