@@ -1,5 +1,6 @@
 import { BrowserContext, ElectronApplication, Page, _electron as electron, _electron } from 'playwright';
 import { test, expect } from '@playwright/test';
+import * as cnfig from './playwright.config'
 const PATH = require('path');
 const viewPortSize =  { width: 1280, height: 720 };
 

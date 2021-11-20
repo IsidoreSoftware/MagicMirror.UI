@@ -8,7 +8,6 @@ module.exports = function (config) {
     plugins: [
       'karma-jasmine',
       'karma-coverage',
-      'karma-chrome-launcher',
       'karma-electron',
       'karma-jasmine-html-reporter',
       '@angular-devkit/build-angular/plugins/karma'
@@ -27,7 +26,7 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    browsers: ['AngularElectron','ChromeHeadless'],
+    browsers: ['AngularElectron'],
     customLaunchers: {
       AngularElectron: {
         base: 'Electron',
