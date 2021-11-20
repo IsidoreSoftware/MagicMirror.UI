@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-electron": {
+    "magic-mirror": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -69,6 +69,22 @@
                 }
               ]
             },
+            "webprod": {
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.webprod.ts"
+                }
+              ]
+            },
             "production": {
               "optimization": true,
               "outputHashing": "all",
@@ -99,6 +115,9 @@
             "web": {
               "browserTarget": "angular-electron:build:web"
             },
+            "webprod": {
+              "browserTarget": "angular-electron:build:webprod"
+            },
             "production": {
               "browserTarget": "angular-electron:build:production"
             }
@@ -118,6 +137,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "scripts": [],
+            "codeCoverage": true,
             "styles": [
               "src/styles.scss"
             ],
@@ -140,7 +160,7 @@
         }
       }
     },
-    "angular-electron-e2e": {
+    "magic-mirror-e2e": {
       "root": "e2e",
       "projectType": "application",
       "architect": {
@@ -155,7 +175,7 @@
       }
     }
   },
-  "defaultProject": "angular-electron",
+  "defaultProject": "magic-mirror",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

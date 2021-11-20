@@ -1,7 +1,9 @@
-import { BrowserContext, ElectronApplication, Page, _electron as electron } from 'playwright';
+import { BrowserContext, ElectronApplication, Page, _electron as electron, _electron } from 'playwright';
 import { test, expect } from '@playwright/test';
-import { delay } from 'rxjs';
 const PATH = require('path');
+const viewPortSize =  { width: 1280, height: 720 };
+
+test.use({ viewport: viewPortSize});
 
 test.describe('Check Home Page', async () => {
   let app: ElectronApplication;
@@ -11,8 +13,8 @@ test.describe('Check Home Page', async () => {
   test.beforeAll( async () => {
     app = await electron.launch({ args: [PATH.join(__dirname, '../app/main.js'), PATH.join(__dirname, '../app/package.json')] });
     context = app.context();
-    await context.tracing.start({ screenshots: true, snapshots: true });
     firstWindow = await app.firstWindow();
+    firstWindow.setViewportSize(viewPortSize)
     await firstWindow.waitForLoadState('domcontentloaded');
   });
 
@@ -45,19 +47,18 @@ test.describe('Check Home Page', async () => {
     await firstWindow.waitForTimeout(4000);
     // Uncomment if you change the design of Home Page in order to create a new screenshot
     const screenshot = await firstWindow.screenshot({ path: '/tmp/home.png' });
-    expect(screenshot).toMatchSnapshot(`hello-${browserName}.png`);
+    expect(screenshot).toMatchSnapshot(`hello.png`);
   });
 
-  test('Redirects from welcome to desktop after 23 seconds', async () => {
+  test('Redirects from welcome to desktop after 24 seconds', async () => {
 
     expect(firstWindow.url()).toMatch(/\/welcome$/);
-    await firstWindow.waitForTimeout(23000);
+    await firstWindow.waitForTimeout(24000);
     
     expect(firstWindow.url()).toMatch(/\/desktop$/);
   });
 
   test.afterAll( async () => {
-    await context.tracing.stop({ path: 'e2e/tracing/trace.zip' });
     await app.close();
   });
 });
