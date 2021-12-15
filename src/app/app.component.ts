@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { WelcomeComponent } from 'app/welcome/welcome.component';
+import { WelcomeComponent } from "../app/welcome/welcome.component";
 
 @Component({
   selector: 'app-root',

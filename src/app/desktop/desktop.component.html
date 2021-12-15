@@ -1,4 +1,9 @@
-Desktop
-<div *ngFor="let w of widgets | async">
-    <widget [template]="w.template" [stylesFile]="w.style"></widget>
+<div class="desktop-container">
+    <div *ngFor="let w of widgets | async">
+        <widget [template]="w.template" [stylesFile]="w.style"></widget>
+    </div>
+    <div class="weather-box">
+        <div class="outside">{{(weather | async)/1| number:'1.0-0'}}° <i class="icon flaticon-082-rain-9"></i></div>
+        <div class="inside">24° <i class="icon flaticon-082-rain-9"></i></div>
+    </div>
 </div>

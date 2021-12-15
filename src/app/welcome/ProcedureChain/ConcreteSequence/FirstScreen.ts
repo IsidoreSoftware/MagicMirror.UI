@@ -1,5 +1,5 @@
-import { Procedure } from "app/welcome/ProcedureChain/Procedure";
-import { ProcedureRequest } from "app/welcome/ProcedureChain/ProcedureRequest";
+import { Procedure } from "../../../welcome/ProcedureChain/Procedure";
+import { ProcedureRequest } from "../../../welcome/ProcedureChain/ProcedureRequest";
 
 export class FirstScreen extends Procedure {
 

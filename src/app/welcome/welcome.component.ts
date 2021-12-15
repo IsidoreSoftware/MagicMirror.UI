@@ -1,12 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { animations } from './welcome.animations';
 import { Router } from '@angular/router';
-import { ProcedureRequest } from 'app/welcome/ProcedureChain/ProcedureRequest';
-import { FirstScreen } from 'app/welcome/ProcedureChain/ConcreteSequence/FirstScreen';
-import { WelcomeUser } from 'app/welcome/ProcedureChain/ConcreteSequence/WelcomeUser';
-import { User } from 'app/welcome/models/user';
-import { Greatings } from 'app/welcome/ProcedureChain/ConcreteSequence/Greatings';
-import { Observable } from 'rxjs/Observable';
+import { ProcedureRequest } from '../../app/welcome/ProcedureChain/ProcedureRequest';
+import { FirstScreen } from '../../app/welcome/ProcedureChain/ConcreteSequence/FirstScreen';
+import { WelcomeUser } from '../../app/welcome/ProcedureChain/ConcreteSequence/WelcomeUser';
+import { User } from '../../app/welcome/models/user';
+import { Greatings } from '../../app/welcome/ProcedureChain/ConcreteSequence/Greatings';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'welcome',
@@ -14,11 +14,11 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./welcome.component.css'],
   animations: animations
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements OnInit {
 
   private user: Observable<User>;
-  private currentView: string;
-  private isVisible = true;
+  public currentView: string;
+  public isVisible = true;
 
   constructor(private router: Router) {
     let request = new ProcedureRequest();
@@ -42,10 +42,21 @@ export class WelcomeComponent {
 
     let procedureChain = new FirstScreen();
     procedureChain
-          .setSuccessor(new WelcomeUser(this.user))
-          .setSuccessor(new Greatings());
+      .setSuccessor(new WelcomeUser(this.user))
+      .setSuccessor(new Greatings());
     procedureChain.processRequest(request);
+
+    this.login();
   }
+
+  ngOnInit(): void {
+
+    //we're duing automatic login now... At some point get face and login then.
+    let self = this;
+    setTimeout(() => self.login(), 8000);
+  }
+
+
 
   public login() {
     const u = { Name: 'Kuba' };

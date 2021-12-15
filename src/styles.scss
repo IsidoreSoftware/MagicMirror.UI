@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  background-color: black;
+  color: white;
+  font-family: 'Roboto-Thin', Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.icon {
+  display: inline;
+}
+
+.icon::before{
+    font-size: 0.7em;
+}

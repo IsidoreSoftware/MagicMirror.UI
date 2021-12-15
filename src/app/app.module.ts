@@ -2,15 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DesktopComponent } from './desktop/desktop.component';
-import { appRoutes } from "app/app.routes";
+import { appRoutes } from "../app/app.routes";
 import { RouterModule } from "@angular/router";
-import { WidgetService } from "app/desktop/services/widget.service";
-import { WidgetComponent } from "app/desktop/widget-component/widget.component";
+import { WidgetService } from "../app/desktop/services/widget.service";
+import { WidgetComponent } from "../app/desktop/widget-component/widget.component";
+import { WeatherService } from '../app/desktop/services/weather.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,12 @@ import { WidgetComponent } from "app/desktop/widget-component/widget.component";
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [WidgetService],
+  providers: [
+    WidgetService,
+    WeatherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

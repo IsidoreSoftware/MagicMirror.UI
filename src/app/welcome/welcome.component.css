@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:200);
-* {
+body {
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -26,7 +26,7 @@
   background-color: transparent;
 }
 
- /deep/ .submessage {
+::ng-deep .submessage {
   position: relative;
   font-family: 'Titillium Web', sans-serif;
   font-size: 0.3em;

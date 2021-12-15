@@ -1,0 +1,27 @@
+.desktop-container{
+    font-weight: 100;
+    font-family: 'Roboto-Thin';
+    margin: 2em;
+}
+
+.weather-box {
+  margin-right: 0;
+  text-align: right;
+  float: right;
+  font-size: 7em;
+}
+
+.inside{
+    font-size: 0.3em;
+    text-align: left;
+}
+
+.time-box {
+  text-align: left;
+  float: left;
+  font-size: 6em;
+}
+
+.date {
+    font-size: 1.5rem;
+}
