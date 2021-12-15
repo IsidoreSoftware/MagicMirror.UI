@@ -1,5 +1,7 @@
 # IsidoreMagicMirror
 
+Demo: https://magicmirrorfrontend.z5.web.core.windows.net/
+
 ## Start on Raspberry
 DISPLAY=:0 /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk https://magicmirrorfrontend.z5.web.core.windows.net/
 and 
